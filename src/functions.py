@@ -3,4 +3,4 @@ def foo(num_1, num_2):
     return num
 
 
-var = foo(12, 15)
+var = foo(3, 5)

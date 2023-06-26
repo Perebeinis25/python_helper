@@ -29,11 +29,14 @@ result = fun_4(25, 20)
 print("fun_4:", result)
 
 
+
 def fun_5(x, y):
     return x - y
 
 
 result = fun_5(fun_5(5, 9), fun_5(8, 2))
 print("fun_5:", result)
+
+
 
 

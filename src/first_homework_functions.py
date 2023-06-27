@@ -1,5 +1,6 @@
 def fun_1():
-    print("fun_1:", "hello py")
+    result = "No arguments, no return"
+    print(result)
 
 
 fun_1()

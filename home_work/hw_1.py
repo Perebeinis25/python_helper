@@ -32,7 +32,6 @@ def fun_2(x, y):
 
 result = fun_2(int("-11", 10), int(15))
 print("fun_2:", result)
-print(int("-11", 10))
 
 
 def fun_3(x, y):

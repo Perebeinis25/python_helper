@@ -8,10 +8,9 @@ def fun_1(x):
 
 
 number = input("Введіть число: ")
-print(*fun_1(number), sep='\n')  # В цьому випадку не знаю як вивести в різних рядках, тому вкрав оператор розпакування *.
+print(*fun_1(number), sep='\n')
 
 
-# Другий спосіб, але тут функція не прииймає аргумента, як вказано в завданні.
 def fun_1_1():
     num = int(input("Введіть число:"))
     num = abs(num)
@@ -34,14 +33,16 @@ result = fun_2(int("-11", 10), int(15))
 print("fun_2:", result)
 
 
-def fun_3(x, y):
-    int_v1 = int("-11", 10)
-    int_v2 = int(15)
+def fun_3(var_1, var_2):
+    int_v1 = str(var_1)
+    int_v2 = str(var_2)
     int_v3 = int_v1 + int_v2
     return int_v3
 
 
-result = fun_3(5, 10)
+var_1 = int("-11", 10)
+var_2 = int(15)
+result = fun_3(var_1, var_2)
 print("fun_3:", result)
 
 
@@ -50,12 +51,15 @@ def fun_4():
     stuff_position_1 = "builder"
     stuff_salary_1 = "10000"
     stuff_name_2 = "Igor"
-    stuff_position_2 = "компукторщик"
+    stuff_position_2 = "Compuctor_man_1"
     stuff_salary_2 = "100000"
+    stuff_name_3 = "Sergii"
+    stuff_position_3 = "Compuctor_man_2"
+    stuff_salary_3 = "50000"
 
-    print("Stuff information 1:", stuff_name_1, "-", stuff_position_1, "    ",
-          stuff_salary_1)
-    print("Stuff information 2: {} - {}    {}".format(stuff_name_2, stuff_position_2, stuff_salary_2))
+    print("Stuff information 1:", stuff_name_1, "-", stuff_position_1, "\t", stuff_salary_1)
+    print("Stuff information 2: {} - {}\t{}".format(stuff_name_2, stuff_position_2, stuff_salary_2))
+    print("Stuff information 3: " + "%s, %s, %d" % ("Sergii", "Compuctor_man_2", 50000))
 
 
 fun_4()

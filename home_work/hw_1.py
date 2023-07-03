@@ -57,9 +57,11 @@ def fun_4():
     stuff_position_3 = "Compuctor_man_2"
     stuff_salary_3 = "50000"
 
-    print("Stuff information 1:", stuff_name_1, "-", stuff_position_1, "\t", stuff_salary_1)
-    print("Stuff information 2: {} - {}\t{}".format(stuff_name_2, stuff_position_2, stuff_salary_2))
-    print("Stuff information 3: " + "%s, %s, %d" % ("Sergii", "Compuctor_man_2", 50000))
+    print("Stuff information 1:", stuff_name_1, "-", stuff_position_1, '\t', stuff_salary_1)
+    print("Stuff information 2: {} - {} \t {}".format(stuff_name_2, stuff_position_2, stuff_salary_2))
+    print("Stuff information 3: " + "%s - %s %s %s" % (stuff_name_3, stuff_position_3, '\t', stuff_salary_3))
+    # can't understand why in Stuff information 2 there are six spaces
+    # Stuff information 1 and Stuff information 3 - Just four spaces
 
 
 fun_4()

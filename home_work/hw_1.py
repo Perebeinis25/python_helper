@@ -1,4 +1,4 @@
-def fun_1(x):
+"""def fun_1(x):
     x = int(x)
     x = abs(x)
     var_1 = x // 100
@@ -9,9 +9,9 @@ def fun_1(x):
 
 number = input("Введіть число: ")
 print(*fun_1(number), sep='\n')
+"""
 
-
-def fun_1_1():
+"""def fun_1_1():
     num = int(input("Введіть число:"))
     num = abs(num)
     var_1 = num // 100
@@ -24,25 +24,24 @@ def fun_1_1():
 
 fun_1_1()
 
+"""
+def fun_2(x, y, z, w):
+    var1 = int(x, z)
+    var2 = int(y, w)
+    return var1 + var2
 
-def fun_2(x, y):
-    return x + y
 
-
-result = fun_2(int("-11", 10), int(15))
+result = fun_2("0o346", "0xAF47", 8, 16)
 print("fun_2:", result)
 
 
-def fun_3(var_1, var_2):
-    int_v1 = str(var_1)
-    int_v2 = str(var_2)
-    int_v3 = int_v1 + int_v2
-    return int_v3
+def fun_3(sign, modul, base):
+    num_str = sign + modul
+    ret = int(num_str, base)
+    return ret
 
 
-var_1 = int("-11", 10)
-var_2 = int(15)
-result = fun_3(var_1, var_2)
+result = fun_3("", "0o346", 8)
 print("fun_3:", result)
 
 

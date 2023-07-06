@@ -176,6 +176,7 @@ def arithmetic_operators():
     ret_v11 = pow(var_v3, var_v2)
     ret_v12 = var_v3 ** var_v2
 
+
     print("ret_v1", ret_v1)
     print("ret_v2", ret_v2)
     print("ret_v3", ret_v3)
@@ -212,5 +213,18 @@ def operators_precedence():
     print("ret_v5", ret_v5)
     print("ret_v6", ret_v6)
 
+    ret_v1 = 8
+    print()
+    print("ret_v1", ret_v1)
+    ret_v1 += 3
+    print("ret_v1", ret_v1)
+    ret_v1 -= 3
+    print("ret_v1", ret_v1)
+    ret_v1 *= 3
+    print("ret_v1", ret_v1)
+    ret_v1 //= 3
+    print("ret_v1", ret_v1)
+    ret_v1 /= 3
+    print("ret_v1", ret_v1)
 
 

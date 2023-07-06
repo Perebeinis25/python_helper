@@ -5,7 +5,7 @@ def escape_symbols():
     print("tab_sign", tab_sign)
     print("new_line_sign", new_line_sign)
 
-
+escape_symbols()
 def strings_init():
     str_v1 = "Hello python"
     str_v2 = 'Hello python'
@@ -64,7 +64,7 @@ But it doesn't contain new line characters.\
     print("str_v18", str_v18)
     print(isinstance(str_v1, str))
 
-
+strings_init()
 def string_indexation():
     str_base = "Hello python"
     char_v1 = str_base[0]
@@ -103,8 +103,8 @@ def formatting_string():
     melon_count = 30
 
     print("Fruits count:", apple_tile, "-", apple_count, ",",
-          pineapple_title, "-", pineapple_count, ",",
-          melon_title, "-", melon_count, ".")
+        pineapple_title, "-", pineapple_count, ",",
+        melon_title, "-", melon_count, ".")
 
     print("Fruits count: {}-  {}, {}-{}, {}-{}.".format(apple_tile, apple_count,
                                                       pineapple_title, pineapple_count,
@@ -119,4 +119,4 @@ def formatting_string():
 
     print("%d, %f, %.2f %s, %c, %c" % (10, 10.57654, 10.57654, "Hello", 65, 97))
 
-formatting_string()
+

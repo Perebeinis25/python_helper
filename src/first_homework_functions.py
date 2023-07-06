@@ -1,6 +1,6 @@
 def fun_1():
     result = "No arguments, no return"
-    print(result)
+    print("fun_1:", result)
 
 
 fun_1()

@@ -1,19 +1,21 @@
-'''def rounding_float(x):
-    if not isinstance(x, float) and not isinstance(x, int):
+# Task №6
+def rounding_float(x):
+    if isinstance(x, int):
+        x = float(x)
+        return x
+    if not isinstance(x, float):
         return "Nan"
-    elif type(x) == int:
-        return float(x)
     elif isinstance(x, float):
         if x > 1000000:
             return "Inf"
         elif x < -1000000:
             return "-Inf"
-        return round(x, 2)
+        rounded_x = (x * 10 // 1) / 10  # Vkrav bo sam by ne dodumavcia. Ale rozibravsya yak vono pratciuye
+        return rounded_x
 
 
-result = rounding_float(555.3665)
+result = rounding_float(-1000000000000)
 print(result)
-'''
 
 
 # Task №7
@@ -22,7 +24,7 @@ def ternary_operator(a, b, c):
     return val
 
 
-result = ternary_operator(6 < 8, 105, 8)
+result = ternary_operator(10 < 8, 105, 8)
 print(result)
 
 
@@ -59,52 +61,30 @@ result = ret_int("0x", "FF32")
 print("fun_2:", result)
 
 
-'''# Task №10
+# Task №10
 def transformation(arg):
-    if arg.isdigit() = False:
-        return 0
-    arg = float(arg)
-
-    if arg == float("Infinity"):
-        arg = 1000000
-        return arg
-    if arg == float("-Infinity"):
-        arg = -1000000
-        return arg
-    if arg <= 1000000 or arg >= -1000000:
-        return arg
-    if arg > 1000000:
-        return "infinity"
-    if arg < -1000000:
-        return "-infinity"
-
-
-result = transformation('222bhh')
-print(result)
-
-
-str = "555hh5"
-print(str.isdigit())
-
-'''
-'''
-def process_number(value):
-    if value.lower() == 'nan':
-        return 0.0
-    elif value.lower() == 'infinity':
-        return 1000000.0
-    elif value.lower() == '-infinity':
-        return -1000000.0
-
-    float_value = float(value)
-
-    if float_value <= -1000000.0:
-        return float('-inf')
-    elif float_value < 1000000.0:
-        return float_value
+    if arg == str(arg):
+        arg = float(arg)
+        if arg != arg:       # Stole this part. Check if arg is nan.
+            return 0.0
+        if arg == float("inf"):
+            arg = 1000000
+            return arg
+        if arg == float("-Infinity"):
+            arg = -1000000
+            return arg
+        if (arg <= 1000000 and arg > -1000000) or (arg >= -1000000 and arg < 1000000):
+            return arg
+        if arg > 1000000:
+            return "infinity"
+        if arg < -1000000:
+            return "-infinity"
     else:
-        return float('inf')
-'''
+        print('You enter not string')
+
+
+result = transformation("-999999")   # 55hhh - don't work with that.
+print(result)
 
 
 # Task №11
@@ -129,9 +109,9 @@ def hundreds_decade_units(num, bol):
             elif not bol:
                 print(str(hundreds) + " hundreds")
 
-result = hundreds_decade_units(555, True)
+result = hundreds_decade_units(-650, True)
 if result:
-    print(result)
+    print(result)  # this part don't understand too.
 
 
 '''out = str(units) + " units"

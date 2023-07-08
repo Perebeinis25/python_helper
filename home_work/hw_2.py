@@ -65,7 +65,7 @@ print("fun_2:", result)
 def transformation(arg):
     if arg == str(arg):
         arg = float(arg)
-        if arg != arg:       # Stole this part. Check if arg is nan.
+        if arg != arg:  # Stole this part. Check if arg is nan.
             return 0.0
         if arg == float("inf"):
             arg = 1000000
@@ -73,7 +73,7 @@ def transformation(arg):
         if arg == float("-Infinity"):
             arg = -1000000
             return arg
-        if (arg <= 1000000 and arg > -1000000) or (arg >= -1000000 and arg < 1000000):
+        if (1000000 >= arg > -1000000) or (-1000000 <= arg < 1000000):
             return arg
         if arg > 1000000:
             return "infinity"
@@ -83,7 +83,7 @@ def transformation(arg):
         print('You enter not string')
 
 
-result = transformation("-999999")   # 55hhh - don't work with that.
+result = transformation('5555e55555555')  # "55hhh" - don't work with that.
 print(result)
 
 
@@ -109,10 +109,8 @@ def hundreds_decade_units(num, bol):
             elif not bol:
                 print(str(hundreds) + " hundreds")
 
-result = hundreds_decade_units(-650, True)
-if result:
-    print(result)  # this part don't understand too.
 
+hundreds_decade_units(-990, False)
 
 '''out = str(units) + " units"
 if bol:

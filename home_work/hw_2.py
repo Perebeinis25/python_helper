@@ -91,27 +91,27 @@ print(result)
 def hundreds_decade_units(num, bol):
     if isinstance(num, str):
         print("You enter string")
-    if isinstance(num, int) or isinstance(num, float) and not 0:
-        if isinstance(num, float):
-            num = int(num)
-            units = abs(num) % 10
-            if units > 0 and bol:
-                print("1. " + str(units) + " units")
-            elif not bol and units != 0:
-                print(str(units) + " units")
-            decade = abs(num) % 100 // 10
-            if decade > 0 and bol:
-                print("2. " + str(decade) + " decade")
-            elif not bol and decade != 0:
-                print(str(decade) + " decade")
-            hundreds = abs(num) // 100
-            if hundreds > 0 and bol:
-                print("3. " + str(hundreds) + " hundreds")
-            elif not bol and hundreds != 0:
-                print(str(hundreds) + " hundreds")
+    elif isinstance(num, float):
+        num = int(num)
+    if isinstance(num, int) and not 0:
+        units = abs(num) % 10
+        if units > 0 and bol:
+            print("1. " + str(units) + " units")
+        elif not bol and units != 0:
+            print(str(units) + " units")
+        decade = abs(num) % 100 // 10
+        if decade > 0 and bol:
+            print("2. " + str(decade) + " decade")
+        elif not bol and decade != 0:
+            print(str(decade) + " decade")
+        hundreds = abs(num) // 100
+        if hundreds > 0 and bol:
+            print("3. " + str(hundreds) + " hundreds")
+        elif not bol and hundreds != 0:
+            print(str(hundreds) + " hundreds")
 
 
-hundreds_decade_units(601.00, False)
+hundreds_decade_units(222.55, True)
 
 '''out = str(units) + " units"
 if bol:

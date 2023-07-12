@@ -7,14 +7,20 @@ def rounding_float(x):
         return "Nan"
     elif isinstance(x, float):
         if x > 1000000:
-            return "Inf"
+            return float('inf')
         elif x < -1000000:
             return "-Inf"
-        rounded_x = (x * 10 // 1) / 10  # Vkrav bo sam by ne dodumavcia. Ale rozibravsya yak vono pratciuye
-        return rounded_x
+
+        rou_1 = (x * 10 // 1) / 10
+        rounded_x = x * 10
+
+        if (rounded_x % 1) >= 0.5:
+            return  rou_1 + 0.1
+        else:
+            return rou_1
 
 
-result = rounding_float(-1000000000000)
+result = rounding_float(1.27)
 print(result)
 
 
@@ -53,11 +59,21 @@ print("fun_2:", result)
 # Task №9
 def ret_int(prefix, num):
     con = prefix + num
-    res = int(con, 16)
+
+    if prefix == '0b' or prefix == '0B':
+        res = int(con, 2)
+    elif prefix == '0x' or prefix == '0X':
+        res = int(con, 16)
+    elif prefix == '0o' or prefix == '0O':
+        res = int(con, 8)
+    elif prefix == '' or prefix == '0':
+        res = int(con, 10)
+    else:
+        res = 0
     return res
 
 
-result = ret_int("0x", "FF32")
+result = ret_int("0r", "76")
 print("fun_2:", result)
 
 
@@ -83,35 +99,60 @@ def transformation(arg):
         print('You enter not string')
 
 
-result = transformation('5555e55555555')  # "55hhh" - don't work with that.
-print(result)
+result = transformation('555')  # "55hhh" - don't work with string like that.
+if result:
+    print(result)
 
 
 # Task №11
 def hundreds_decade_units(num, bol):
-    if isinstance(num, str):
+    if type(num) == str:
         print("You enter string")
     elif isinstance(num, float):
         num = int(num)
     if isinstance(num, int) and not 0:
+
         units = abs(num) % 10
-        if units > 0 and bol:
-            print("1. " + str(units) + " units")
+        val_1 = units > 0 and bol
+        ch_1 = str(units) + " units"
+
+        if val_1:
+            print("1. " + ch_1)
         elif not bol and units != 0:
-            print(str(units) + " units")
+            print(ch_1)
+
         decade = abs(num) % 100 // 10
-        if decade > 0 and bol:
-            print("2. " + str(decade) + " decade")
+        val_2 = decade > 0 and bol
+        ch_2 = str(decade) + " decade"
+
+        if val_2:
+            print("2. " + ch_2) if val_1 else print("1. " + ch_2)
+            # if val_1:
+            #     print("2. " + str(decade) + " decade")
+            # else:
+            #     print("1. " + str(decade) + " decade")
+
         elif not bol and decade != 0:
-            print(str(decade) + " decade")
+            print(ch_2)
+
         hundreds = abs(num) // 100
-        if hundreds > 0 and bol:
-            print("3. " + str(hundreds) + " hundreds")
+        val_3 = hundreds > 0 and bol
+        ch_3 = str(hundreds) + " hundreds"
+
+        if val_3:
+
+            if decade == 0 and units == 0:
+                print("1. " + ch_3)
+            elif (decade > 0 and units == 0) or (units > 0 and decade == 0):
+                print("2. " + ch_3)
+            elif decade != 0 and units != 0:
+                print("3. " + ch_3)
+
         elif not bol and hundreds != 0:
-            print(str(hundreds) + " hundreds")
+            print(ch_3)
 
 
-hundreds_decade_units(222.55, True)
+hundreds_decade_units(110, True)
 
 '''out = str(units) + " units"
 if bol:

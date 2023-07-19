@@ -81,7 +81,7 @@ def exeption_seven(lst):
     return a
 
 
-lst = [0, -1, 3, 4, 5, 6, 7, 8, 9, -10.5, 11, 12, 47.7]
+lst = [0, -1, 3, 4, 5, 6, 7, 8, 9, -10.5, 11, 12, 47.7, 14]
 result = exeption_seven(lst)
 print(result)
 

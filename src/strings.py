@@ -85,6 +85,8 @@ def string_indexation():
     print("sub_str_v3", sub_str_v3)
 
 
+string_indexation()
+
 def strings_operators():
     str_v1 = "Hello " + "python"  # concatenation
     #   str_v1 = "Hello " + 5
@@ -106,7 +108,7 @@ def formatting_string():
         pineapple_title, "-", pineapple_count, ",",
         melon_title, "-", melon_count, ".")
 
-    print("Fruits count: {}-  {}, {}-{}, {}-{}.".format(apple_tile, apple_count,
+    print("Fruits count: {} -  {}, {}-{}, {}-{}.".format(apple_tile, apple_count,
                                                       pineapple_title, pineapple_count,
                                                       melon_title, melon_count))
 
@@ -119,4 +121,4 @@ def formatting_string():
 
     print("%d, %f, %.2f %s, %c, %c" % (10, 10.57654, 10.57654, "Hello", 65, 97))
 
-
+formatting_string()

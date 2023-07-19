@@ -218,7 +218,7 @@ def operators_precedence():
     print("ret_v1", ret_v1)
     ret_v1 += 3
     print("ret_v1", ret_v1)
-    ret_v1 -= 3
+    ret_v1 -= 5
     print("ret_v1", ret_v1)
     ret_v1 *= 3
     print("ret_v1", ret_v1)
@@ -228,3 +228,4 @@ def operators_precedence():
     print("ret_v1", ret_v1)
 
 
+operators_precedence()

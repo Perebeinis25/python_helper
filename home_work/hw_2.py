@@ -126,7 +126,8 @@ def hundreds_decade_units(num, bol):
         ch_2 = str(decade) + " decade"
 
         if val_2:
-            print("2. " + ch_2) if val_1 else print("1. " + ch_2)
+            # print("2. " + ch_2) if val_1 else print("1. " + ch_2)
+            print('2. ' if val_1 else '1. ', ch_2)
             # if val_1:
             #     print("2. " + str(decade) + " decade")
             # else:
@@ -153,8 +154,3 @@ def hundreds_decade_units(num, bol):
 
 
 hundreds_decade_units(110, True)
-
-'''out = str(units) + " units"
-if bol:
-    out = "1. " + out
-print(out)'''

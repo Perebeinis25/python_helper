@@ -18,3 +18,38 @@ for list_indx in range(0, concat_collection_len):
         print(concat_collection[list_indx])
 
 
+
+list_v1 = ["8849", "Python", 0, 63, 1, True, "8849"]
+#           0        1       2  3   4    5      6
+
+print(list_v1[5])
+
+list_len = len(list_v1)
+
+if 7 < list_len:
+    print(list_v1[7])
+
+
+def nested_loops2():
+
+    matrix = [[754, 743, 803, 783],
+              [854, 243, 303, 983],
+              [954, 943, 503, 873],
+              [354, 343, 103, 738]]
+
+    # print()
+    for row in matrix:
+
+        row_elems = ""
+        elem_index = 0
+        for elem in row:
+
+            row_elems = row_elems + str(elem) + ", "
+            elem_index = elem_index + 1
+            if elem_index == len(row):
+                row_elems = row_elems[:-2]
+
+        print(row_elems)
+
+
+nested_loops2()

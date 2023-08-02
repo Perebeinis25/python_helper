@@ -70,19 +70,19 @@ print(result)
 # Task_5
 def exeption_seven(lst):
     a = []
+    lst = abs(lst)
 
-    for i in lst:
-        i = abs(i)
+    if isinstance(lst, int):
 
-        if type(i) == int or type(i) == float:
+        for i in range(0, lst):
 
             if i % 7 != 0:
                 a.append(i)
-    return a
+
+        return a
 
 
-lst = [0, -1, 3, 4, 5, 6, 7, 8, 9, -10.5, 11, 12, 47.7, 14]
-result = exeption_seven(lst)
+result = exeption_seven(-33)
 print(result)
 
 
@@ -99,4 +99,17 @@ def multi_ply(input_num):
         print("Number is not valid")
 
 
-multi_ply(5)
+multi_ply(8)
+
+
+def fizz_fuzz(lst):
+    for i in lst:
+        if i % 7 == 0 and i % 5 == 0:
+            print(i, 'fizz fuzz ')
+        elif i % 7 == 0:
+            print(i, 'fuzz')
+        elif i % 5 == 0:
+            print(i, 'fizz')
+
+lst = range(1, 36)
+fizz_fuzz(lst)

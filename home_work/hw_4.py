@@ -1,4 +1,4 @@
-# Task_2
+'''# Task_2
 def arrow(num):
     if num % 2 != 0:
         num_idx = 0
@@ -16,14 +16,14 @@ def arrow(num):
         # for i in range(num):
             print(num * "* ")
 
-arrow(10)
+arrow(13)
 
 
 
 # Task_3
 def fibonachi(num):
-    first_dod = 3
-    second_dod = 2
+    first_dod = 2
+    second_dod = 3
     print(first_dod)
 
     while first_dod + second_dod <= num:
@@ -37,22 +37,45 @@ def fibonachi(num):
 
 
 fibonachi(26)
-
+'''
 
 # Task_4
 def foo(range_arg, list_arg):
-    for i in range_arg:
-        for z in list_arg:
-            if i % z == 0:
-                print(i)
+    list_len = len(list_arg) + 1
+    list_res = list(range(list_len))
 
+    list_res_indx = 0
+    while list_res_indx < list_len:
+        list_res[list_res_indx] = 0
+        list_res_indx += 1
 
-range_arg = range(1, 7)
+    for range_elem in range_arg:
+
+        indx_num = -1
+        indx_now = 0
+
+        for list_elem in list_arg:
+
+            if not range_elem % list_elem:
+                if indx_num != -1:
+                    indx_num = -1
+                    list_res[list_len - 1] += 1
+                    break
+                else:
+                    indx_num = indx_now
+
+            indx_now += 1
+
+        if indx_num != -1:
+            list_res[indx_num] += 1
+
+    return list_res
+
+range_arg = range(1, 8)
 list_arg = [2, 3, 4, 5, 7]
 result = foo(range_arg, list_arg)
 print(result)
-
-
+'''
 #Task_5
 def reunion(list_arg):
     counter = 0
@@ -66,26 +89,25 @@ def reunion(list_arg):
 
     list_res = list(range(counter))
 
-    i = 0
+    idx_elem = 0
 
     for list_elem in list_arg:
 
         if isinstance(list_elem, tuple) or isinstance(list_elem, list):
 
             for nested_elem in list_elem:
-                list_res[i] = nested_elem
-                i += 1
+                list_res[idx_elem] = nested_elem
+                idx_elem += 1
 
         else:
-            list_res[i] = list_elem
-            i += 1
+            list_res[idx_elem] = list_elem
+            idx_elem += 1
 
     return list_res
 
 
-list_arg = [72, "Python", ("hello", True), 73.5, ("hello", True)]
+list_arg = [72, "Python", ("hello", True), 73.5, ("hello", True), 35.5]
 result = reunion(list_arg)
 print(result)
 
-
-
+'''

@@ -3,9 +3,9 @@ def tuple_init():
     tuple_v2 = (5, "tuple", tuple_v1)
     tuple_v3 = tuple((5, 4, 5, 6))
     tuple_v4 = tuple(tuple_v3)  # tuple
-    tuple_v5 = tuple("Hello world")  # string
-    tuple_v6 = tuple([783, "python", None])  # list
-    tuple_v7 = tuple({783: "python", "54": None})  # dictionary
+    # tuple_v5 = tuple("Hello world")  # string
+    # tuple_v6 = tuple([783, "python", None])  # list
+    # tuple_v7 = tuple({783: "python", "54": None})  # dictionary
     tuple_v8 = tuple(range(0, 5))  # range
 
     print("tuple_v1", tuple_v1)
@@ -18,7 +18,7 @@ def tuple_init():
     print("tuple_v8", tuple_v8)
     print(isinstance(tuple_v1, tuple))
 
-tuple_init()
+
 def list_init():
     list_v1 = [5, "Hello", True]
     list_v2 = [5, "tuple", list_v1]
@@ -39,7 +39,7 @@ def list_init():
     print("list_v8", list_v8)
     print(isinstance(list_v1, list))
 
-list_init()
+
 
 def range_init():
     range_v1 = range(0, 5)
@@ -127,5 +127,6 @@ def sequences_operators():
     #print(list_v1.index(544))
     print(range_v1.index(8))
     print(str_v1.index("p"))
+
 
 sequences_operators()

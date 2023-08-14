@@ -15,15 +15,29 @@ print("# Task_2: ", new_list, type(new_list), id(new_list))                # dif
 # Task_3
 def foo(original_list):
 
-    new_list = original_list.copy()
+    new_list = []
+
+    for i in original_list:
+
+        if isinstance(i, list):
+            new_list.append(i.copy())
+
+        elif isinstance(i, tuple):
+            temp = []
+
+            for el in i:
+                temp.append(el)
+            new_list.append(tuple(temp))
+
+        else:
+            new_list.append(i)
 
     return new_list
 
 original_list = [4, 9.3, (6, 7), "Hello", ["Python", "Lorem"], True]
-
-print("# Task_3: ", original_list, id(original_list), id(original_list[0]))
+print("# Task_3: ", original_list, id(original_list), id(original_list[2]))
 result = foo(original_list)
-print("# Task_3: ", result, type(result), id(result), id(result[0]))
+print("# Task_3: ", result, type(result), id(result), id(result[2]))
 
 
 # Task_4
@@ -62,16 +76,16 @@ print("# Task_5: ", result, type(result), id(result))                      # id 
 
 
 # Task_6
-def special_values(list_1, list_2):
-    list_result = []
+def special_values(list_1, list_2):   # it's not correct function because True == 1...9, False == 0
+    list_result = []                  # I need help with it
 
     for i in list_1:
         if i not in list_2:
             list_result.append(i)
     for c in list_2:
-        # if c == bool:
-        #     if bool not in list_2:
-        #         list_result.append(c)
+        if isinstance(c, bool):
+            if bool not in list_2:
+                list_result.append(c)
         if c not in list_1:
             list_result.append(c)
     return list_result

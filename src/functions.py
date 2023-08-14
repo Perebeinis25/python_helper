@@ -4,5 +4,3 @@ def foo(num_1, num_2):
 
 
 var = foo(23, 25)
-
-# test comment

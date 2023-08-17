@@ -40,6 +40,7 @@ result = foo(original_list)
 print("# Task_3: ", result, type(result), id(result), id(result[2]))
 
 
+
 # Task_4
 def same_list(original_list):
 
@@ -76,22 +77,39 @@ print("# Task_5: ", result, type(result), id(result))                      # id 
 
 
 # Task_6
-def special_values(list_1, list_2):   # it's not correct function because True == 1...9, False == 0
-    list_result = []                  # I need help with it
+def special_values(list_1, list_2):
+    list_result = []
 
     for i in list_1:
         if i not in list_2:
-            list_result.append(i)
-    for c in list_2:
-        if isinstance(c, bool):
-            if bool not in list_2:
-                list_result.append(c)
-        if c not in list_1:
-            list_result.append(c)
+            if not isinstance(i, bool):
+                list_result.append(i)
+        if isinstance(i, bool):
+            for x in list_2:
+                if isinstance(x, bool):
+                    var = 0
+                    if i != x:
+                        var += 1
+                    else:
+                        var = 0
+                    if var > 0:
+                        list_result.append(i)
+    # for c in list_2:
+    #     if isinstance(c, bool):
+    #         for x in list_1:
+    #             if isinstance(x, bool):
+    #                 if x != c:
+    #                     list_result.append(c)
+    #             # else:
+    #             #     list_result.append(c)
+    #     if c not in list_1:
+    #         list_result.append(c)
+
     return list_result
 
 
-list_1 = [5, 6, 7, 8, 9, 1, 0]
+
+list_1 = [5, 6, 7, 8, 9, 1, 0, False, True]
 list_2 = [6, 7, 8, True, False, "Hello", 1]
 result = special_values(list_1, list_2)
 print("# Task_6: ", result)

@@ -81,36 +81,35 @@ def special_values(list_1, list_2):
     list_result = []
 
     for i in list_1:
-        if i not in list_2:
-            if not isinstance(i, bool):
-                list_result.append(i)
-        if isinstance(i, bool):
-            for x in list_2:
-                if isinstance(x, bool):
-                    var = 0
-                    if i != x:
-                        var += 1
-                    else:
-                        var = 0
-                    if var > 0:
-                        list_result.append(i)
-    # for c in list_2:
-    #     if isinstance(c, bool):
-    #         for x in list_1:
-    #             if isinstance(x, bool):
-    #                 if x != c:
-    #                     list_result.append(c)
-    #             # else:
-    #             #     list_result.append(c)
-    #     if c not in list_1:
-    #         list_result.append(c)
+        var = 0
+        for x in list_2:
+
+            if x == i:
+                if (not isinstance(x, bool) and not isinstance(i, bool)) or (isinstance(x, bool) and isinstance(i, bool)):
+                    var = 1
+                    break
+
+        if var == 0:
+            list_result.append(i)
+
+    for i in list_2:
+        var = 0
+        for x in list_1:
+
+            if x == i:
+                if (not isinstance(x, bool) and not isinstance(i, bool)) or (isinstance(x, bool) and isinstance(i, bool)):
+                    var = 1
+                    break
+
+
+        if var == 0:
+            list_result.append(i)
 
     return list_result
 
 
-
-list_1 = [5, 6, 7, 8, 9, 1, 0, False, True]
-list_2 = [6, 7, 8, True, False, "Hello", 1]
+list_1 = [0, 5, 6, True, 7, 9, 8, 1, False]
+list_2 = [6, 7, 8, False, "Hello", 1, 0]
 result = special_values(list_1, list_2)
 print("# Task_6: ", result)
 

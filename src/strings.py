@@ -5,7 +5,7 @@ def escape_symbols():
     print("tab_sign", tab_sign)
     print("new_line_sign", new_line_sign)
 
-escape_symbols()
+
 def strings_init():
     str_v1 = "Hello python"
     str_v2 = 'Hello python'
@@ -64,7 +64,7 @@ But it doesn't contain new line characters.\
     print("str_v18", str_v18)
     print(isinstance(str_v1, str))
 
-strings_init()
+
 def string_indexation():
     str_base = "Hello python"
     char_v1 = str_base[0]
@@ -85,8 +85,6 @@ def string_indexation():
     print("sub_str_v3", sub_str_v3)
 
 
-string_indexation()
-
 def strings_operators():
     str_v1 = "Hello " + "python"  # concatenation
     #   str_v1 = "Hello " + 5
@@ -105,10 +103,10 @@ def formatting_string():
     melon_count = 30
 
     print("Fruits count:", apple_tile, "-", apple_count, ",",
-        pineapple_title, "-", pineapple_count, ",",
-        melon_title, "-", melon_count, ".")
+          pineapple_title, "-", pineapple_count, ",",
+          melon_title, "-", melon_count, ".")
 
-    print("Fruits count: {} -  {}, {}-{}, {}-{}.".format(apple_tile, apple_count,
+    print("Fruits count: {}-{}, {}-{}, {}-{}.".format(apple_tile, apple_count,
                                                       pineapple_title, pineapple_count,
                                                       melon_title, melon_count))
 
@@ -118,7 +116,50 @@ def formatting_string():
     print("Fruits count: {2}-{3}, {2}-{3}, {0}-{1}.".format(apple_tile, apple_count,
                                                             pineapple_title, pineapple_count,
                                                             melon_title, melon_count))
+    print("Fruits count: {t1}-{c1}, {t2}-{c2}, {t3}-{c3}.".format(t1=apple_tile, c1=apple_count,
+                                                                  t2=pineapple_title, c2=pineapple_count,
+                                                                  t3=melon_title, c3=melon_count))
+
+    print("%d, %.1f, %s, %c, %c" % (10, 10.57654, "Hello", 65, 97))
 
     print("%d, %f, %.2f %s, %c, %c" % (10, 10.57654, 10.57654, "Hello", 65, 97))
 
-formatting_string()
+
+def methods():
+    print("Hello world".center(50))
+    print("Hello world".center(10))
+    print()
+    print("Hello world".find("Hello"))       # index entry element
+    print("Hello world".find("Hello", 0, 4)) # -> print("Hell", "Hello")
+    print("Hello world".find("Hello", 0, 5)) # -> print("Hello", "Hello")
+    print()
+    print("6543".isdecimal())
+    print("-6543".isdecimal())
+    print("06543".isdecimal())
+    print("0x6543".isdecimal())
+    print("6543ab".isdecimal())
+    print()
+    print("Hello world".islower())
+    print("hello world".islower())
+    print()
+    print("Hello world".isupper())
+    print("HELLO WORLD".islower())
+    print()
+    print("Hello World".lower())
+    print("Hello World".upper())
+    print()
+    print("Hello world and python".partition(" "))
+    print("hello / world".partition("/"))
+    print("hello _ world".partition("/"))
+    print()
+    print("Hello world".replace("world", "python"))
+    print("Hello world and world".replace("world", "python"))
+    print("Hello world and world".replace("world", "python", 1))
+    print()
+    print("Hello world and python".split(" "))
+    print()
+    print(" ".join(['Hello', 'world', 'and', 'python']))
+    print()
+    print("            Hello world and python".strip())
+
+methods()

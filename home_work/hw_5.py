@@ -85,7 +85,7 @@ def special_values(list_1, list_2):
         for x in list_2:
 
             if x == i:
-                if (not isinstance(x, bool) and not isinstance(i, bool)) or (isinstance(x, bool) and isinstance(i, bool)):
+                if (not isinstance(x, bool) and not isinstance(x, bool)) or (isinstance(x, bool) and isinstance(i, bool)):
                     var = 1
                     break
 
@@ -169,7 +169,6 @@ def count_words(input_str):
 
     list_result = []
     input_str = input_str.lower().split()
-
 
     for item in input_str:
         tuple_in_list = (item, input_str.count(item))

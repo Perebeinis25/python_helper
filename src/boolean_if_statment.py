@@ -59,7 +59,7 @@ def bool_init():
     print("bool_v26", bool_v26)
     print(isinstance(bool_v1, bool))
 
-
+bool_init()
 def bool_operators():  # bool/logical operators
     and_v1 = True and False
     and_v2 = False and False

@@ -64,7 +64,7 @@ def entering(str_1, str_2):
         return -1
 
 
-print(entering("Helolo Python", "l"))
+print(entering("Hellllo Python", "lo "))
 
 
 # Task 3
@@ -107,7 +107,7 @@ def count_entering(str_1, str_2):
     return result
 
 
-print(count_entering("Hello world and hello python", "o"))
+print(count_entering("Hello lo Python", "lo "))
 
 
 # Task 4
@@ -118,7 +118,7 @@ def placeholder_format(format_str, value):
 
     while indx_str + 1 < len(format_str):
 
-        if format_str[indx_str] == '{' and format_str[indx_str + 1] == '}':
+        while format_str[indx_str] == '{' and format_str[indx_str + 1] == '}':
 
             if indx_value < len(value):
                 str_res += str(value[indx_value])
@@ -127,7 +127,7 @@ def placeholder_format(format_str, value):
 
             else:
                 str_res += format_str[indx_str:]
-                break
+                return str_res
 
         if format_str[indx_str] != '{' or format_str[indx_str] != '}':
             str_res += str(format_str[indx_str])
@@ -138,9 +138,26 @@ def placeholder_format(format_str, value):
     return str_res
 
 
-format_str = "I { have  apples and  mellons , }"
+format_str = "I {} {} {-} have  apples and  mellons , {}"
 value = [6, 5]
 print(placeholder_format(format_str, value))
+
+
+
+def _is_digit(s):
+
+    is_digit = False
+    s_len = len(s)
+    counter = 0
+
+    for item in s:
+        if item in "0123456789":
+            counter += 1
+
+    if counter == s_len:
+        is_digit = True
+
+    return is_digit
 
 
 # Task 5
@@ -155,7 +172,7 @@ def index_placeholder(format_str, value):
             result += str(format_str[indx_str:])
             break
 
-        if format_str[indx_str] == '{' and format_str[indx_str + 2] == '}':
+        if format_str[indx_str] == '{' and format_str[indx_str + 2] == '}' and _is_digit(format_str[indx_str + 1]):
             idx = int(format_str[indx_str + 1])
 
             if idx < len(value):
@@ -171,13 +188,19 @@ def index_placeholder(format_str, value):
             indx_str += 1
     
     else:
-        result += str(format_str[-1])
+        # if format_str[-1] == "}" and format_str[-3] != "{":
+        #     pass
+        if format_str[-1] == "}" and format_str[-3] == "{" and _is_digit(format_str[-2]):
+            return result
+        else:
+            result += str(format_str[-1])
 
     return result
 
 
-format_str = "I have  apples and  mellons { "
+format_str = "I {-} have  apples and  mellons {2}"
 value = [6, 5, 3, 10]
 print(index_placeholder(format_str, value))
+
 
 

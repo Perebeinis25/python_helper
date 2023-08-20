@@ -3,9 +3,9 @@ def tuple_init():
     tuple_v2 = (5, "tuple", tuple_v1)
     tuple_v3 = tuple((5, 4, 5, 6))
     tuple_v4 = tuple(tuple_v3)  # tuple
-    # tuple_v5 = tuple("Hello world")  # string
-    # tuple_v6 = tuple([783, "python", None])  # list
-    # tuple_v7 = tuple({783: "python", "54": None})  # dictionary
+    tuple_v5 = tuple("Hello world")  # string
+    tuple_v6 = tuple([783, "python", None])  # list
+    tuple_v7 = tuple({783: "python", "54": None})  # dictionary
     tuple_v8 = tuple(range(0, 5))  # range
 
     print("tuple_v1", tuple_v1)
@@ -38,7 +38,6 @@ def list_init():
     print("list_v7", list_v7)
     print("list_v8", list_v8)
     print(isinstance(list_v1, list))
-
 
 
 def range_init():
@@ -129,4 +128,62 @@ def sequences_operators():
     print(str_v1.index("p"))
 
 
-sequences_operators()
+def list_mutable_operators_and_methods():
+
+    list_v1 = [5, 32, False, (5, 6), "Hello"]
+
+    list_v1[0] = True
+    print(list_v1)
+
+    list_v1[1:3] = "string"  # right value must be iterable object with any length
+    print(list_v1)
+    list_v1[1:7] = (35, False)
+    print(list_v1)
+
+    list_v1.append(6.5)
+    print(list_v1)
+
+    list_v1.extend("string")  # argument must be iterable object
+    # list_v1 += "string"  # the same
+    print("extend: ", list_v1)
+
+    list_v1 *= 2
+    print(list_v1)
+
+    list_v1[len(list_v1)//2:] = []  # remove half of list
+    print(list_v1)
+
+    list_v1.insert(1, "Python")
+    print("insert: ", list_v1)
+    list_v1.insert(-1, "Python")
+    print(list_v1)
+    list_v1.insert(100, "Python")
+    print(list_v1)
+
+    elem = list_v1.pop(2)
+    print("pop: ", list_v1)
+    print(elem)
+
+    # remove half of list
+    new_len = len(list_v1) // 2
+    while len(list_v1) > new_len:
+        elem = list_v1.pop()
+        print(elem)
+
+    print(list_v1)
+
+    list_v1.remove((5, 6))  # remove certain object
+    print("remove:", list_v1)
+
+#   if certain object doesn't exist it will throw an error
+#   so to remove object safety check it existing first
+    if (5, 6) in list_v1:
+        list_v1.remove((5, 6))
+
+    list_v1.reverse()
+    print(list_v1)
+
+    list_v1.clear()
+    print(list_v1)
+
+list_mutable_operators_and_methods()

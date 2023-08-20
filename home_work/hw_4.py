@@ -1,4 +1,4 @@
-'''# Task_2
+# Task_2
 def arrow(num):
     if num % 2 != 0:
         num_idx = 0
@@ -37,7 +37,7 @@ def fibonachi(num):
 
 
 fibonachi(26)
-'''
+
 
 # Task_4
 def foo(range_arg, list_arg):
@@ -75,7 +75,8 @@ range_arg = range(1, 8)
 list_arg = [2, 3, 4, 5, 7]
 result = foo(range_arg, list_arg)
 print(result)
-'''
+
+
 #Task_5
 def reunion(list_arg):
     counter = 0
@@ -110,4 +111,3 @@ list_arg = [72, "Python", ("hello", True), 73.5, ("hello", True), 35.5]
 result = reunion(list_arg)
 print(result)
 
-'''

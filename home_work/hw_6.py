@@ -1,21 +1,50 @@
 # Task 3
 def count_symbols(str_arg):
-
-    result = 0
+    value_index = 0
+    key_list = []
+    value_list = []
+    list_result = []
 
     for i in str_arg:
-        result += 1
 
-    return result
+        if i not in value_list:
+            key_list.append(str_arg.count(i))
+            value_list.append(i)
+        else:
+            continue
+
+    for i in key_list:
+        result = f"{i} - {value_list[value_index]}"
+        list_result.append(result)
+        value_index += 1
+
+    return list_result
 
 print("# Task_3: ", count_symbols("Hello="))
 
 # Task_4
 def count_words(input_str):
 
-    result = len(input_str.split())
+    split_word = input_str.split()
+    value_index = 0
+    key_list = []
+    value_list = []
+    list_result = []
 
-    return result
+    for i in split_word:
+
+        if i not in value_list:
+            key_list.append(split_word.count(i))
+            value_list.append(i)
+        else:
+            continue
+
+    for i in key_list:
+        result = f"\'{value_list[value_index]}\' - {i}"
+        list_result.append(result)
+        value_index += 1
+
+    return list_result
 
 
 input_str = "Hello hello hellO world y x"
@@ -25,42 +54,55 @@ print("# Task_4: ", result)
 
 # Task_5
 def dict_union(dict_1, dict_2):
+    list1 = list()
+    list1.extend(dict_1.values())
+    list1.extend(dict_2.values())
 
     union = dict_1 | dict_2
+    total_len = len(dict_1) + len(dict_2)
 
     for i in dict_1:
 
         if i in dict_2:
-            var = dict(zip(range(0, len(union)), (union.values())))
+            var = dict(zip((range(0, total_len)), list1))
             return var
 
     else:
         return union
 
 
-dict_1 = {1: "Hello", 2: "world", 3: "Python"}
+dict_1 = {17: "Hello", 22: "world", 23: "Python", 45: "Python"}
 dict_2 = {3: "hello", 4: "world", 5: "python"}
 result = dict_union(dict_1, dict_2)
 print("# Task_5: ", result)
 
 # Task_6
 def dict_union(dict_1, dict_2):
+    list1 = list(dict_1.keys())
+    key = 0
+    for i in list1:
 
-    key_list = list(range(len(dict_1) + len(dict_2)))
-    print(key_list)
-    for i in dict_1:
-        if i in dict_2 or i not in dict_2:
-            key_list.remove(i)
-    print(key_list)
-    dict_3 = dict_1 | dict(zip(key_list, (dict_2.values())))
+        if i in dict_2:
+            for el in dict_2:
+                if el not in dict_1:
+                    dict_1.update({el: dict_2[el]})
+                else:
+                    dict_1.update({key: dict_2[el]})
+                    while key in dict_1 or key in dict_2 or key == 0:
+                        key += 1
+            break
+    else:
+        no_coincidence = dict_1 | dict_2
+        return no_coincidence
 
-    return dict_3
+    return dict_1
 
 
-dict_1 = {1: "Hello", 2: "world", 3: "Python", 4: "Python"}
-dict_2 = {1: "hello", 2: "world", 3: "python"}
+dict_1 = {105: "Hello", 2: "Yra", 53: "Python", 5: "is", 10: "the"}
+dict_2 = {1: "best", 2: "thing", 3: "except", 5: "Igor`s", 53: "Python", 84: "lessons"}
 result = dict_union(dict_1, dict_2)
 print("# Task_6: ", result)
+
 
 
 # Task_7

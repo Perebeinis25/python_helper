@@ -1,50 +1,27 @@
 # Task 3
 def count_symbols(str_arg):
-    value_index = 0
-    key_list = []
-    value_list = []
-    list_result = []
+    result = {}
 
-    for i in str_arg:
+    for char in str_arg:
+        key = str_arg.count(char)
+        result[char] = key
 
-        if i not in value_list:
-            key_list.append(str_arg.count(i))
-            value_list.append(i)
-        else:
-            continue
+    return result
 
-    for i in key_list:
-        result = f"{i} - {value_list[value_index]}"
-        list_result.append(result)
-        value_index += 1
-
-    return list_result
 
 print("# Task_3: ", count_symbols("Hello="))
 
+
 # Task_4
 def count_words(input_str):
-
+    result = {}
     split_word = input_str.split()
-    value_index = 0
-    key_list = []
-    value_list = []
-    list_result = []
 
-    for i in split_word:
+    for word in split_word:
+        key = split_word.count(word)
+        result[word] = key
 
-        if i not in value_list:
-            key_list.append(split_word.count(i))
-            value_list.append(i)
-        else:
-            continue
-
-    for i in key_list:
-        result = f"\'{value_list[value_index]}\' - {i}"
-        list_result.append(result)
-        value_index += 1
-
-    return list_result
+    return result
 
 
 input_str = "Hello hello hellO world y x"
@@ -54,48 +31,52 @@ print("# Task_4: ", result)
 
 # Task_5
 def dict_union(dict_1, dict_2):
-    list1 = list()
-    list1.extend(dict_1.values())
-    list1.extend(dict_2.values())
-
     union = dict_1 | dict_2
+    set_keys_dict_1 = set(dict_1)
+    set_keys_dict_2 = set(dict_2)
+
     total_len = len(dict_1) + len(dict_2)
 
-    for i in dict_1:
+    list_value = []
 
-        if i in dict_2:
-            var = dict(zip((range(0, total_len)), list1))
-            return var
+    list_value.extend(dict_1.values())
+    list_value.extend(dict_2.values())
+    check = set_keys_dict_1.isdisjoint(set_keys_dict_2)
+
+    if not check:
+        var = dict(zip((range(0, total_len)), list_value))
+        return var
 
     else:
         return union
 
 
-dict_1 = {17: "Hello", 22: "world", 23: "Python", 45: "Python"}
-dict_2 = {3: "hello", 4: "world", 5: "python"}
+dict_1 = {17: "Hello", 2: "world", 3: "Python", 45: "Python"}
+dict_2 = {3: "hello", 2: "world", 5: "python"}
 result = dict_union(dict_1, dict_2)
 print("# Task_5: ", result)
 
+
 # Task_6
 def dict_union(dict_1, dict_2):
-    list1 = list(dict_1.keys())
+    set_keys_dict_1 = set(dict_1)
+    set_keys_dict_2 = set(dict_2)
     key = 0
-    for i in list1:
+    intersect = set_keys_dict_1.intersection(set_keys_dict_2)
 
-        if i in dict_2:
-            for el in dict_2:
-                if el not in dict_1:
-                    dict_1.update({el: dict_2[el]})
-                else:
-                    dict_1.update({key: dict_2[el]})
-                    while key in dict_1 or key in dict_2 or key == 0:
-                        key += 1
-            break
+    for j in dict_2:
+        if j in intersect:
+
+            while key in dict_1 or key in dict_2:
+                key += 1
+            dict_1[key] = dict_2[j]
+            key += 1
+
+        else:
+            dict_1[j] = dict_2[j]
+
     else:
-        no_coincidence = dict_1 | dict_2
-        return no_coincidence
-
-    return dict_1
+        return dict_1
 
 
 dict_1 = {105: "Hello", 2: "Yra", 53: "Python", 5: "is", 10: "the"}

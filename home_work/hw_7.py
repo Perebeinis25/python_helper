@@ -12,6 +12,7 @@ args_dict = {"key": "Python"}
 print("# Task 1: ")
 print_args(*args_list, **args_dict)
 
+
 # Task 2
 def print_to_number(num):
 
@@ -21,6 +22,7 @@ def print_to_number(num):
     print(num)
 
     return num - print_to_number(num - 1)
+
 
 print("# Task 2: ")
 print_to_number(3)
@@ -39,6 +41,7 @@ int_value_list = [1, 2, 3]
 result = count_value(int_value_list, 0)
 print("# Task 3: ", result)
 
+
 # Task 4
 def max_value(int_value_list, max_number=0):
 
@@ -54,3 +57,41 @@ def max_value(int_value_list, max_number=0):
 int_value_list = [5, 7, 2, 17]
 result = max_value(int_value_list)
 print("# Task 4: ", result)
+
+
+# Task 5
+def foo(str):
+    def inner_function():
+        return str
+
+    return inner_function()
+
+
+print("# Task 5: ", foo("Hello Igor"))
+
+
+def lambda_foo(str):
+    var = lambda: str
+    return var
+
+result = lambda_foo("It's me")
+output = result()
+print("# Task 5: ", output)
+
+
+# Task 6
+def bubble(lst):
+    idx = 0
+
+    for i in lst:
+
+        if len(lst) == idx + 1:
+            return lst[idx]
+        idx += 1
+
+        if i > lst[idx]:
+            lst[idx], i = i, lst[idx]
+
+
+lst = [32, 63, 7, 65, 12, 1]
+print("# Task 6: ", bubble(lst))
